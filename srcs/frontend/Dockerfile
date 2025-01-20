@@ -1,10 +1,11 @@
 FROM nginx:stable
 
-COPY ./nginx.conf /etc/nginx/sites-enabled/default
+COPY ./nginx.conf /etc/nginx/sites-enabled/default/
 
 COPY ./entrypoint.sh /home/entrypoint.sh
 
 RUN chmod +x /home/entrypoint.sh
+RUN mkdir /project
 
 EXPOSE 443 80
 
