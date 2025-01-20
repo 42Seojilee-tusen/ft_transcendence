@@ -1,0 +1,16 @@
+services:
+  # frontend:
+  backend:
+    init: true
+    build: ./srcs/backend
+    image: django
+    container_name: django
+    ports:
+      - 8000:8000
+    volumes:
+      - ./srcs/backend/srcs:/project
+  # database:
+
+networks:
+  ft_trancendence:
+
