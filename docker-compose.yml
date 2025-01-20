@@ -1,10 +1,24 @@
 services:
-  # frontend:
+  frontend:
+    init: true
+    build: ./srcs/frontend
+    image: frontend:42
+    container_name: frontend
+    env_file:
+      - .env
+    ports:
+      - "443:443"
+      - "80:80"
+    volumes:
+      - ./srcs/backend/srcs:/project
+
   backend:
     init: true
     build: ./srcs/backend
     image: django
     container_name: django
+    env_file:
+      - .env
     ports:
       - 8000:8000
     volumes:

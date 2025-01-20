@@ -13,6 +13,9 @@ exec:
 restart:
 	docker compose restart
 
+fclean:
+	docker compose down -v --rmi all
+
 re:
-	make down
+	make fclean
 	make up
